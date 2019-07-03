@@ -15,7 +15,7 @@ namespace Razor.Controllers
             {
                 ProductId = 1,
                 Name = "Kajak",
-                Description = "Jednnosobowy kajak",
+                Description = "Jednosobowy kajak",
                 Price = 275M,
                 Category = "Sporty wodne"
             };

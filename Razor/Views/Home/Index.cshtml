@@ -1,7 +1,8 @@
 ﻿@model Product
 
 @{
-    Layout = null;
+    Layout = "_BasicLayout";
+    ViewBag.Title = "Info o produkcie";
 }
 
 <html>
@@ -11,7 +12,10 @@
 </head>
 <body>
     <div>
-        @Model.Name
+        Nazwa produktu: @Model.Name<br />
+        Kategoria: @Model.Category<br />
+        Opis: @Model.Description<br />
+        Cena: @Model.Price<br />
     </div>
 </body>
 </html>
