@@ -17,19 +17,17 @@
         <p>Cena: @Model.Price</p>
         <p>
             Ilość w magazynie: 
-            @switch ((int)ViewBag.StockLevel)
+            @if (ViewBag.StockLevel == 0)
             {
-                case 0:
-                    @:brak
-                    break;
-                case 1:
-                case 2:
-                case 3:
-                    <b>mało (@ViewBag.StockLevel)</b>
-                    break;
-                default:
-                    @:dostępny (@ViewBag.StockLevel)
-                    break;
+                @:brak
+            }
+            else if (ViewBag.StockLevel > 0 && ViewBag.StockLevel < 4)
+            {
+                <b>mało (@ViewBag.StockLevel)</b>
+            }
+            else
+            {
+                @:dostępne (@ViewBag.StockLevel)
             }
         </p>
     </div>
