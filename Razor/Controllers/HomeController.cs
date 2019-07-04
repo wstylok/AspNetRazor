@@ -20,6 +20,8 @@ namespace Razor.Controllers
                 Category = "Sporty wodne"
             };
 
+            ViewBag.StockLevel = 2;
+
             return View(myProduct);
         }
     }

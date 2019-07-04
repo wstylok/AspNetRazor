@@ -10,11 +10,28 @@
     <title>Index</title>
 </head>
 <body>
-    <div>
-        Nazwa produktu: @Model.Name<br />
-        Kategoria: @Model.Category<br />
-        Opis: @Model.Description<br />
-        Cena: @Model.Price<br />
+    <div data-productid="@Model.ProductId" data-stocklevel="@ViewBag.StockLevel">
+        <p>Nazwa produktu: @Model.Name</p>
+        <p>Kategoria: @Model.Category</p>
+        <p>Opis: @Model.Description</p>
+        <p>Cena: @Model.Price</p>
+        <p>
+            Ilość w magazynie: 
+            @switch ((int)ViewBag.StockLevel)
+            {
+                case 0:
+                    @:brak
+                    break;
+                case 1:
+                case 2:
+                case 3:
+                    <b>mało (@ViewBag.StockLevel)</b>
+                    break;
+                default:
+                    @:dostępny (@ViewBag.StockLevel)
+                    break;
+            }
+        </p>
     </div>
 </body>
 </html>
