@@ -1,4 +1,4 @@
-﻿@model Product
+﻿@model Product[]
 
 @{
     ViewBag.Title = "Info o produkcie";
@@ -10,26 +10,22 @@
     <title>Index</title>
 </head>
 <body>
-    <div data-productid="@Model.ProductId" data-stocklevel="@ViewBag.StockLevel">
-        <p>Nazwa produktu: @Model.Name</p>
-        <p>Kategoria: @Model.Category</p>
-        <p>Opis: @Model.Description</p>
-        <p>Cena: @Model.Price</p>
-        <p>
-            Ilość w magazynie: 
-            @if (ViewBag.StockLevel == 0)
+    <table>
+        <thead>
+            <tr>
+                <th>Produkt</th>
+                <th>Cena</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Product p in Model)
             {
-                @:brak
+                <tr>
+                    <td>@p.Name</td>
+                    <td>@($"{p.Price:C2}")</td>
+                </tr>
             }
-            else if (ViewBag.StockLevel > 0 && ViewBag.StockLevel < 4)
-            {
-                <b>mało (@ViewBag.StockLevel)</b>
-            }
-            else
-            {
-                @:dostępne (@ViewBag.StockLevel)
-            }
-        </p>
-    </div>
+        </tbody>
+    </table>
 </body>
 </html>
